@@ -1,2 +1,1 @@
-# Mern
-A full-stack MERN app with user auth (JWT), CRUD, REST API, MongoDB + Mongoose, and responsive UI. Built using React, Express, Node, styled with Tailwind/Bootstrap, and follows MVC structure. State managed via Context/Redux. Deployed via Vercel/Render + MongoDB Atlas.
+MERN stack web app featuring secure login (JWT), full CRUD operations, RESTful APIs, and MongoDB integration via Mongoose. Developed with React for frontend, Node.js/Express for backend, styled using Tailwind or Bootstrap. Follows MVC pattern, uses Redux/Context for state, and is hosted on Vercel/Render with MongoDB Atlas.
