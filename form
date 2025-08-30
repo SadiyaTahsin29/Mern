@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edverciity by LiveTechSkills — Enquiry / Registration Form</title>
+  <style>
+    :root{
+      --brand:#687FE5;          /* Indigo (brand accent) */
+      --brand-2:#FCD8CD;        /* Pastel peach */
+      --brand-3:#FEEBF6;        /* Pastel pink */
+      --brand-4:#EBD6FB;        /* Pastel violet */
+      --ink:#1f2937;            /* Text */
+      --muted:#6b7280;          /* Muted text */
+      --bg:#fafafa;             /* Page bg */
+      --card:#ffffff;           /* Card bg */
+      --ring: rgba(104,127,229,.35);
+      --ok:#10b981;
+      --warn:#ef4444;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--ink); background:var(--bg);
+    }
+    header{
+      background: radial-gradient(1200px 400px at 10% -10%, var(--brand-4), transparent),
+                  radial-gradient(800px 300px at 100% 0%, var(--brand-2), transparent),
+                  linear-gradient(90deg, var(--brand) 0%, #7e8df0 100%);
+      color:#fff; padding:28px 20px; border-bottom:1px solid rgba(255,255,255,.25);
+    }
+    .container{ max-width:1080px; margin:0 auto; padding:0 16px; }
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .logo{
+      width:42px; height:42px; border-radius:12px; background:#fff3;
+      display:grid; place-items:center; font-weight:700; letter-spacing:.5px;
+    }
+    .title{ margin:0; font-size:clamp(20px,3vw,28px); font-weight:800 }
+    .subtitle{ margin:4px 0 0; opacity:.9 }
+
+    main{ padding:24px 0 40px }
+    .grid{ display:grid; gap:18px; grid-template-columns:1fr; }
+    @media (min-width: 920px){ .grid{ grid-template-columns: 1.05fr .95fr; } }
+
+    .card{
+      background:var(--card); border:1px solid #e5e7eb; border-radius:16px; padding:18px;
+      box-shadow:0 8px 24px rgba(17,24,39,.05);
+    }
+
+    h2{ margin:.2rem 0 1rem; font-size:1.1rem }
+    h3{ margin:1.5rem 0 .75rem; font-size:1rem; color:var(--muted) }
+    .info-list{ margin:0; padding:0; list-style:none; }
+    .info-list li { padding:8px 0; border-bottom:1px dashed #edf2f7 }
+    .info-list small{ color:var(--muted) }
+
+    form{ display:grid; gap:14px }
+    .row{ display:grid; gap:12px; grid-template-columns:1fr }
+    @media (min-width: 640px){ .row.two{ grid-template-columns:1fr 1fr } }
+
+    label{ font-weight:600; font-size:.92rem }
+    .hint{ display:block; font-size:.8rem; color:var(--muted); margin-top:4px }
+
+    input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="month"], select, textarea{
+      width:100%; padding:12px 14px; border:1px solid #e5e7eb; border-radius:12px; background:#fff;
+      outline:none; transition:border .2s, box-shadow .2s;
+    }
+    textarea{ min-height:120px; resize:vertical }
+    input:focus, select:focus, textarea:focus{ border-color:var(--brand); box-shadow:0 0 0 4px var(--ring) }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px }
+    .chip{ padding:6px 10px; border-radius:999px; background:var(--brand-3); border:1px solid var(--brand-4); font-size:.8rem }
+
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:4px }
+    button{
+      appearance:none; border:none; border-radius:12px; padding:12px 16px; font-weight:700; cursor:pointer
+    }
+    .btn-primary{ background:var(--brand); color:#fff; box-shadow:0 6px 14px rgba(104,127,229,.35) }
+    .btn-ghost{ background:#fff; color:var(--ink); border:1px solid #e5e7eb }
+
+    .note{ background: #f7fbff; border:1px dashed #c7d2fe; padding:10px 12px; border-radius:12px; font-size:.9rem }
+
+    .toast{ display:none; margin-top:14px; padding:12px 14px; border-radius:12px; border:1px solid #dcfce7; background:#f0fdf4; color:#065f46; }
+    .toast.error{ border-color:#fee2e2; background:#fef2f2; color:#7f1d1d }
+
+    .required::after{ content:" *"; color:var(--warn); }
+    footer{ text-align:center; color:var(--muted); padding:22px 10px 36px }
+    a{ color:var(--brand) }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">E</div>
+        <div>
+          <h1 class="title">EDVERCIITY by LiveTechSkills</h1>
+          <p class="subtitle">IT Services • Internships • Training Programs</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <!-- Left: Company Snapshot -->
+      <section class="card" aria-labelledby="company-overview">
+        <h2 id="company-overview">Organization Overview</h2>
+        <p>“EDVERCIITY BY LIVETECHSKILLS” has evolved from creating awareness about the IT industry to redefining education in Orange City. Since 2018, we’ve impacted 10,000+ students and earned a <strong>Highest Placement (2023)</strong> award.</p>
+
+        <h3>Fast Facts</h3>
+        <ul class="info-list">
+          <li><strong>Founded:</strong> 2018</li>
+          <li><strong>Industry:</strong> Education • IT</li>
+          <li><strong>Company size:</strong> 11–50 employees</li>
+          <li><strong>Headquarters:</strong> Nagpur, Maharashtra</li>
+          <li><strong>Website:</strong> <a href="https://livetechskills.com/" target="_blank" rel="noopener">livetechskills.com</a></li>
+          <li><strong>Phone:</strong> <a href="tel:9096060149">9096060149</a></li>
+        </ul>
+
+        <h3>Popular Programs</h3>
+        <div class="chips" aria-label="popular programs">
+          <span class="chip">Data Science</span>
+          <span class="chip">AI & ML</span>
+          <span class="chip">Web Development</span>
+          <span class="chip">MERN / MEAN</span>
+          <span class="chip">Python / Django</span>
+          <span class="chip">Cloud & AWS</span>
+          <span class="chip">Power BI / Tableau</span>
+          <span class="chip">IoT</span>
+        </div>
+
+        <h3>Locations</h3>
+        <ul class="info-list">
+          <li>
+            <strong>Nandanwan (Primary)</strong><br/>
+            13, 1st floor, Block 2, MB Tower, Nandanvan Main Rd, Mire Layout, Jawahar Nagar, Nagpur 440024
+          </li>
+          <li>
+            <strong>Sadar</strong><br/>
+            Block No 5, First Floor, Mangalwari Complex 1, A Wing, Sadar, Nagpur 440001
+          </li>
+        </ul>
+        <p class="note">Aditya Patle is open to work • 57 associated members • 2K+ followers</p>
+      </section>
+
+      <!-- Right: Enquiry / Registration Form -->
+      <section class="card" aria-labelledby="enquiry-form">
+        <h2 id="enquiry-form">Enquiry / Registration</h2>
+        <form id="eds-form" novalidate>
+          <div class="row two">
+            <div>
+              <label for="name" class="required">Full name</label>
+              <input id="name" name="name" type="text" placeholder="e.g., Sadiya Tahsin Ansari" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="email" class="required">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div class="row two">
+            <div>
+              <label for="phone" class="required">Phone (India)</label>
+              <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="^[6-9]\d{9}$" placeholder="10-digit mobile" aria-describedby="phoneHint" required />
+              <small id="phoneHint" class="hint">Starts with 6–9, 10 digits only</small>
+            </div>
+            <div>
+              <label for="program" class="required">Program type</label>
+              <select id="program" name="program" required>
+                <option value="">Select…</option>
+                <option>Internship</option>
+                <option>Training</option>
+                <option>IT Services (Project)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row two">
+            <div>
+              <label for="track" class="required">Interested in</label>
+              <select id="track" name="track" required>
+                <option value="">Choose a track…</option>
+                <option>Web Development (MERN)</option>
+                <option>Web Development (MEAN)</option>
+                <option>Python & Django</option>
+                <option>Data Science</option>
+                <option>Artificial Intelligence / Machine Learning</option>
+                <option>Cloud (AWS)</option>
+                <option>Power BI / Tableau</option>
+                <option>IoT</option>
+                <option>Java</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="location" class="required">Preferred location</label>
+              <select id="location" name="location" required>
+                <option value="">Select center…</option>
+                <option>Nandanwan</option>
+                <option>Sadar</option>
+                <option>Online</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row two">
+            <div>
+              <label for="start">Tentative start (month)</label>
+              <input id="start" name="start" type="month" />
+            </div>
+            <div>
+              <label for="linkedin">LinkedIn (optional)</label>
+              <input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/username" />
+            </div>
+          </div>
+
+          <div>
+            <label for="message">Your goals / message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you want to learn or build…"></textarea>
+          </div>
+
+          <div>
+            <label for="resume">Attach resume (optional)</label>
+            <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" />
+            <small class="hint">Accepted: PDF, DOC, DOCX</small>
+          </div>
+
+          <div>
+            <label><input id="consent" name="consent" type="checkbox" required /> I agree to be contacted by Edverciity by LiveTechSkills.</label>
+          </div>
+
+          <div class="actions">
+            <button class="btn-primary" type="submit">Submit</button>
+            <button class="btn-ghost" type="reset">Reset</button>
+          </div>
+
+          <div id="toast" class="toast" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Edverciity by LiveTechSkills • Education • Nagpur, Maharashtra
+  </footer>
+
+  <script>
+    // Minimal, dependency-free JS: required-field validation + friendly toast
+    const form = document.getElementById('eds-form');
+    const toast = document.getElementById('toast');
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    function showToast(message, ok=true){
+      toast.textContent = message;
+      toast.className = 'toast' + (ok ? '' : ' error');
+      toast.style.display = 'block';
+      toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function validateEmail(value){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+    }
+
+    function validatePhone(value){
+      return /^[6-9]\d{9}$/.test(value);
+    }
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      if(!data.name || !data.email || !data.phone || !data.program || !data.track || !data.location || !form.consent.checked){
+        showToast('Please fill all required fields and accept the consent.', false); return;
+      }
+      if(!validateEmail(data.email)){
+        showToast('Please enter a valid email address.', false); return;
+      }
+      if(!validatePhone(data.phone)){
+        showToast('Phone must be a 10-digit Indian mobile number starting with 6–9.', false); return;
+      }
+
+      // Simulate submit: store to localStorage so it survives a refresh (demo only)
+      const submissions = JSON.parse(localStorage.getItem('edverciity_submissions')||'[]');
+      submissions.push({ ...data, submittedAt: new Date().toISOString() });
+      localStorage.setItem('edverciity_submissions', JSON.stringify(submissions));
+
+      showToast(`Thanks, ${data.name}! Your ${data.program.toLowerCase()} enquiry for “${data.track}” at ${data.location} was received. We’ll get back to you soon.`);
+      form.reset();
+      form.name.focus();
+    });
+
+    // Enhance: auto-format tel to digits only
+    const phone = document.getElementById('phone');
+    phone.addEventListener('input', ()=>{
+      phone.value = phone.value.replace(/[^\d]/g, '').slice(0,10);
+    });
+  </script>
+</body>
+</html>
